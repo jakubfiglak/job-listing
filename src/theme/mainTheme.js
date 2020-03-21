@@ -1,5 +1,6 @@
 export const theme = {
   primary: 'hsl(180, 29%, 50%)',
+  primaryTransparent: 'hsl(180, 29%, 50%, 0.1)',
   background: 'hsl(180, 52%, 96%)',
   filter: 'hsl(180, 31%, 95%)',
   darkgray: 'hsl(180, 8%, 52%)',
