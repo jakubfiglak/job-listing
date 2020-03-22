@@ -11,8 +11,9 @@ import theairfiltercompany from '../assets/theairfiltercompany.svg';
 
 export const data = [
   {
+    id: 1,
     company: 'Photosnap',
-    logo: { photosnap },
+    logo: photosnap,
     properties: ['New!', 'Featured'],
     title: 'Senior Frontend Developer',
     published: '1d ago',
@@ -25,9 +26,10 @@ export const data = [
     },
   },
   {
+    id: 2,
     company: 'Manage',
-    logo: { manage },
-    properties: ['Featured'],
+    logo: manage,
+    properties: ['New!', 'Featured'],
     title: 'Fullstack Developer',
     published: '1d ago',
     type: 'Part Time',
@@ -39,8 +41,9 @@ export const data = [
     },
   },
   {
+    id: 3,
     company: 'Account',
-    logo: { account },
+    logo: account,
     properties: ['New!'],
     title: 'Junior Frontend Developer',
     published: '2d ago',
@@ -53,8 +56,9 @@ export const data = [
     },
   },
   {
+    id: 4,
     company: 'MyHome',
-    logo: { myhome },
+    logo: myhome,
     title: 'Junior Frontend Developer',
     published: '5d ago',
     type: 'Contract',
@@ -66,8 +70,9 @@ export const data = [
     },
   },
   {
+    id: 5,
     company: 'Loop Studios',
-    logo: { loopstudios },
+    logo: loopstudios,
     title: 'Software Engineer',
     published: '1w ago',
     type: 'Full Time',
@@ -79,8 +84,9 @@ export const data = [
     },
   },
   {
+    id: 6,
     company: 'FaceIt',
-    logo: { faceit },
+    logo: faceit,
     title: 'Junior Backend Developer',
     published: '2w ago',
     type: 'Full Time',
@@ -92,12 +98,13 @@ export const data = [
     },
   },
   {
+    id: 7,
     company: 'Shortly',
-    logo: { shortly },
+    logo: shortly,
     title: 'Junior Developer',
     published: '2w ago',
     type: 'Full Time',
-    location: 'Wordlwide',
+    location: 'Worldwide',
     tags: {
       role: 'Frontend',
       level: 'Junior',
@@ -105,8 +112,9 @@ export const data = [
     },
   },
   {
+    id: 8,
     company: 'Insure',
-    logo: { insure },
+    logo: insure,
     title: 'Junior Frontend Developer',
     published: '2w ago',
     type: 'Full Time',
@@ -118,8 +126,9 @@ export const data = [
     },
   },
   {
+    id: 9,
     company: 'Eyecam Co.',
-    logo: { eyecam },
+    logo: eyecam,
     title: 'Full Stack Engineer',
     published: '3w ago',
     type: 'Full Time',
@@ -131,8 +140,9 @@ export const data = [
     },
   },
   {
+    id: 10,
     company: 'The Air Filter Company',
-    logo: { theairfiltercompany },
+    logo: theairfiltercompany,
     title: 'Front-end Dev',
     published: '1mo ago',
     type: 'Part Time',

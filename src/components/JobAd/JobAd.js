@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const StyledLogo = styled.img`
@@ -11,6 +12,7 @@ const StyledLogo = styled.img`
 const StyledCompanyName = styled.h3`
   font-size: ${({ theme }) => theme.fontSize.m};
   color: ${({ theme }) => theme.primary};
+  margin-right: 2rem;
 `;
 
 const StyledProperty = styled.div`
@@ -19,24 +21,46 @@ const StyledProperty = styled.div`
   text-transform: uppercase;
   background: ${({ theme }) => theme.primary};
   border-radius: 12px;
-  padding: 6px 8px;
+  padding: 0.6rem 0.8rem;
+  margin: 0 0.8rem;
 
   ${({ featured }) => (
     featured && css`
       background: ${({ theme }) => theme.vdarkgray};
     `
   )}
+
 `;
 
 const StyledRole = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.xl};
   font-weight: ${({ theme }) => theme.bold};
   color: ${({ theme }) => theme.vdarkgray};
+  margin: 0.8rem 0;
 `;
 
 const StyledInfo = styled.span`
   color: ${({ theme }) => theme.darkgray};
   font-size: ${({ theme }) => theme.fontSize.l};
+  margin-right: 3.8rem;
+  position: relative;
+  
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: calc(100% + 17px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.darkgray}
+  };
+
+  &:last-of-type::after {
+    display: none;
+  }
 `;
 
 const StyledTag = styled.span`
@@ -45,6 +69,7 @@ const StyledTag = styled.span`
   background: ${({ theme }) => theme.primaryTransparent};
   padding: 4px 10px;
   border-radius: 4px;
+  margin-right: 1.6rem;
 `;
 
 const StyledFlexContainer = styled.div`
@@ -56,6 +81,7 @@ const StyledFlexContainer = styled.div`
   ${({ column }) => (
     column && css`
     flex-direction: column;
+    align-items: flex-start;
     `
   )};
 
@@ -73,35 +99,57 @@ const StyledContainer = styled.div`
   position: relative;
   box-shadow: 0px 15px 20px rgba(13, 113, 130, 0.15);
   border-radius: 5px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto 2.4rem;
 `;
 
 const JobAd = ({
   company, logo, properties, title, published, type, location, tags,
-}) => (
-  <StyledContainer>
-    <StyledLogo src={logo} />
-    <StyledFlexContainer mainContent>
-      <StyledFlexContainer column>
+}) => {
+  const tagsArray = Object.values(tags).flat();
+
+  return (
+    <StyledContainer>
+      <StyledLogo src={logo} alt={company} />
+      <StyledFlexContainer mainContent>
+        <StyledFlexContainer column>
+          <StyledFlexContainer>
+            <StyledCompanyName>{company}</StyledCompanyName>
+            {properties && properties.map((property) => (
+              property === 'Featured' ? <StyledProperty key={property} featured>{property}</StyledProperty> : <StyledProperty key={property}>{property}</StyledProperty>
+            ))}
+          </StyledFlexContainer>
+          <StyledRole>{title}</StyledRole>
+          <StyledFlexContainer>
+            <StyledInfo>{published}</StyledInfo>
+            <StyledInfo>{type}</StyledInfo>
+            <StyledInfo>{location}</StyledInfo>
+          </StyledFlexContainer>
+        </StyledFlexContainer>
         <StyledFlexContainer>
-          <StyledCompanyName>{company}</StyledCompanyName>
-          {properties.map((property) => (
-            <StyledProperty>{property}</StyledProperty>
+          {tagsArray.map((tag) => (
+            <StyledTag key={tag}>{tag}</StyledTag>
           ))}
         </StyledFlexContainer>
-        <StyledRole>{title}</StyledRole>
-        <StyledFlexContainer>
-          <StyledInfo>{published}</StyledInfo>
-          <StyledInfo>{type}</StyledInfo>
-          <StyledInfo>{location}</StyledInfo>
-        </StyledFlexContainer>
       </StyledFlexContainer>
-      <StyledFlexContainer>
-        {tags.map((tag) => (
-          <StyledTag>{tag}</StyledTag>
-        ))}
-      </StyledFlexContainer>
-    </StyledFlexContainer>
-  </StyledContainer>
-);
+    </StyledContainer>
+  );
+};
+
+JobAd.propTypes = {
+  company: PropTypes.string.isRequired,
+  logo: PropTypes.string.isRequired,
+  properties: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string.isRequired,
+  published: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  tags: PropTypes.object.isRequired,
+};
+
+JobAd.defaultProps = {
+  properties: null,
+};
 
 export default JobAd;
