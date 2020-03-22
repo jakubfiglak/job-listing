@@ -102,15 +102,32 @@ const StyledContainer = styled.div`
   width: 90%;
   max-width: 1100px;
   margin: 0 auto 2.4rem;
+  overflow: hidden;
+
+  ${({ featured }) => (
+    featured && css`
+      &::before {
+        display: block;
+        content: '';
+        height: 100%;
+        width: 5px;
+        background: ${({ theme }) => theme.primary};
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    `
+  )}
 `;
 
 const JobAd = ({
   company, logo, properties, title, published, type, location, tags,
 }) => {
   const tagsArray = Object.values(tags).flat();
+  const isFeatured = properties && properties.includes('Featured');
 
   return (
-    <StyledContainer>
+    <StyledContainer featured={isFeatured}>
       <StyledLogo src={logo} alt={company} />
       <StyledFlexContainer mainContent>
         <StyledFlexContainer column>
@@ -145,7 +162,10 @@ JobAd.propTypes = {
   published: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  tags: PropTypes.object.isRequired,
+  tags: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ])).isRequired,
 };
 
 JobAd.defaultProps = {
