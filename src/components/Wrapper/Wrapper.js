@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
-  min-width: 100vh;
-  min-height: 100vh;
+  /* max-width: 100vw; */
   background: ${({ theme }) => theme.background};
 `;
 

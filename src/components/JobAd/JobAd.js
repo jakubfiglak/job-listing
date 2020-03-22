@@ -7,12 +7,23 @@ const StyledLogo = styled.img`
   left: 40px;
   top: 50%;
   transform: translateY(-50%);
+
+  @media screen and (max-width: 411px) {
+    width: 48px;
+    height: 48px;
+    left: 24px;
+    top: 0;
+  }
 `;
 
 const StyledCompanyName = styled.h3`
   font-size: ${({ theme }) => theme.fontSize.m};
   color: ${({ theme }) => theme.primary};
   margin-right: 2rem;
+
+  @media screen and (max-width: 411px) {
+    font-size: ${({ theme }) => theme.fontSize.s};
+  }
 `;
 
 const StyledProperty = styled.div`
@@ -36,7 +47,11 @@ const StyledRole = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.xl};
   font-weight: ${({ theme }) => theme.bold};
   color: ${({ theme }) => theme.vdarkgray};
-  margin: 0.8rem 0;
+  margin: 1.2rem 0;
+
+  @media screen and (max-width: 411px) {
+    font-size: ${({ theme }) => theme.fontSize.l};
+  }
 `;
 
 const StyledInfo = styled.span`
@@ -60,16 +75,20 @@ const StyledInfo = styled.span`
 
   &:last-of-type::after {
     display: none;
-  }
+  };
+
+  @media screen and (max-width: 768px) {
+      font-size: ${({ theme }) => theme.fontSize.s};
+    }
 `;
 
 const StyledTag = styled.span`
   color: ${({ theme }) => theme.primary};
   font-size: ${({ theme }) => theme.fontSize.s};
   background: ${({ theme }) => theme.primaryTransparent};
-  padding: 4px 10px;
+  padding: 0.8rem 1rem;
   border-radius: 4px;
-  margin-right: 1.6rem;
+  margin: 0.5rem 1.6rem 0.5rem 0;
 `;
 
 const StyledFlexContainer = styled.div`
@@ -82,15 +101,50 @@ const StyledFlexContainer = styled.div`
     column && css`
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: 2rem;
+    }
+
+    @media screen and (max-width: 411px) {
+      margin-bottom: 3.3rem;
+
+      &::after {
+        display: block;
+        content: '';
+        background: ${({ theme }) => theme.darkgray};
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -16.5px;
+      }
+    }
     `
   )};
 
   ${({ mainContent }) => (
     mainContent && css`
       justify-content: space-between;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     `
-  )
-}
+  )};
+
+  ${({ tags }) => (
+    tags && css`
+      flex-wrap: wrap;
+      justify-content: flex-end;
+
+      @media screen and (max-width: 411px) {
+        justify-content: flex-start;
+  }
+    `
+  )}
 `;
 
 const StyledContainer = styled.div`
@@ -102,7 +156,6 @@ const StyledContainer = styled.div`
   width: 90%;
   max-width: 1100px;
   margin: 0 auto 2.4rem;
-  overflow: hidden;
 
   ${({ featured }) => (
     featured && css`
@@ -115,9 +168,15 @@ const StyledContainer = styled.div`
         position: absolute;
         top: 0;
         left: 0;
+        border-radius: 5px 0 0 5px;
       }
     `
-  )}
+  )};
+
+  @media screen and (max-width: 411px) {
+    padding: 3.2rem 2.4rem;
+    margin: 0 auto 4rem;
+  }
 `;
 
 const JobAd = ({
@@ -144,7 +203,7 @@ const JobAd = ({
             <StyledInfo>{location}</StyledInfo>
           </StyledFlexContainer>
         </StyledFlexContainer>
-        <StyledFlexContainer>
+        <StyledFlexContainer tags>
           {tagsArray.map((tag) => (
             <StyledTag key={tag}>{tag}</StyledTag>
           ))}

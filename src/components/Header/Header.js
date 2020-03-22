@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import bgheaderdesktop from '../../assets/bgheaderdesktop.svg';
+import bgheadermobile from '../../assets/bgheadermobile.svg';
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -7,6 +8,10 @@ const StyledHeader = styled.header`
   background: ${({ theme }) => theme.primary} url(${bgheaderdesktop});
   background-repeat: no-repeat;
   background-size: 100% 100%;
+
+  @media screen and (max-width: 411px) {
+    background: ${({ theme }) => theme.primary} url(${bgheadermobile});
+    }
 `;
 
 export default StyledHeader;
