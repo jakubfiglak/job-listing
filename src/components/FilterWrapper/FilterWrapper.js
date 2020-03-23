@@ -72,6 +72,7 @@ const StyledFilterEl = styled.div`
 
 const StyledFilterWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const StyledContainer = styled.div`

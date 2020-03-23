@@ -6,6 +6,7 @@ import FilterWrapper from '../FilterWrapper/FilterWrapper';
 
 const StyledAdsWrapper = styled.div`
   padding: 7.6rem 0;
+  min-height: calc(100vh - 150px);
 
   @media screen and (max-width: 768px) {
     padding: 5.6rem 0;
@@ -46,12 +47,16 @@ class AdsWrapper extends Component {
 
   render() {
     const {ads, filters} = this.state;
+    const filteredAds = ads.filter(ad => {
+      const tagsArr = Object.values(ad.tags).flat();
+      return filters.every(filter => tagsArr.includes(filter));
+    });
 
     return (
       <StyledMainWrapper>
         {filters.length !== 0 && <FilterWrapper filters={filters} handleDeleteFilter={this.handleDeleteFilter} handleClearFilters={this.handleClearFilters} />}
         <StyledAdsWrapper>
-          {ads.map(ad => (
+          {filteredAds.map(ad => (
             <JobAd
               key={ad.id} 
               company={ad.company} 
