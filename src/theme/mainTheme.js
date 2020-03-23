@@ -1,4 +1,5 @@
 export const theme = {
+  font: '\'Spartan\', sans-serif',
   primary: 'hsl(180, 29%, 50%)',
   primaryTransparent: 'hsl(180, 29%, 50%, 0.1)',
   background: 'hsl(180, 52%, 96%)',

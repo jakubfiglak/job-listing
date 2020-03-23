@@ -14,6 +14,14 @@ const StyledAdsWrapper = styled.div`
 class AdsWrapper extends Component {
   state = {
     ads: [...data],
+    filter: []
+  }
+
+  handleTagClick = (e) => {
+    const filterString = e.target.innerHTML;
+    this.setState(prevState => ({
+      filter: [...prevState.filter, filterString]
+    }))
   }
 
   render() {
@@ -31,7 +39,8 @@ class AdsWrapper extends Component {
             published={ad.published} 
             type={ad.type} 
             location={ad.location} 
-            tags={ad.tags} 
+            tags={ad.tags}
+            handleTagClick={this.handleTagClick} 
             />
         )) }
       </StyledAdsWrapper>

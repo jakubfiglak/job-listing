@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import StyledTag from '../Tag/Tag';
 
 const StyledLogo = styled.img`
   position: absolute;
@@ -89,22 +90,6 @@ const StyledInfo = styled.span`
     }
 `;
 
-const StyledTag = styled.span`
-  color: ${({ theme }) => theme.primary};
-  font-size: ${({ theme }) => theme.fontSize.s};
-  background: ${({ theme }) => theme.primaryTransparent};
-  padding: 0.8rem 1rem;
-  border-radius: 4px;
-  margin: 0.5rem 1.6rem 0.5rem 0;
-  cursor: pointer;
-  transition: all 0.2s;
-
-  &:hover {
-    background: ${({ theme }) => theme.primary};
-    color: #fff;
-  }
-`;
-
 const StyledFlexContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -190,7 +175,7 @@ const StyledContainer = styled.div`
 `;
 
 const JobAd = ({
-  company, logo, properties, title, published, type, location, tags,
+  company, logo, properties, title, published, type, location, tags, handleTagClick,
 }) => {
   const tagsArray = Object.values(tags).flat();
   const isFeatured = properties && properties.includes('Featured');
@@ -215,7 +200,7 @@ const JobAd = ({
         </StyledFlexContainer>
         <StyledFlexContainer tags>
           {tagsArray.map((tag) => (
-            <StyledTag key={tag}>{tag}</StyledTag>
+            <StyledTag onClick={handleTagClick} key={tag}>{tag}</StyledTag>
           ))}
         </StyledFlexContainer>
       </StyledFlexContainer>
