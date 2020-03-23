@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.js": "/job-listing/static/js/main.82d6cba8.chunk.js",
-    "main.js.map": "/job-listing/static/js/main.82d6cba8.chunk.js.map",
+    "main.js": "/job-listing/static/js/main.1cfa50c1.chunk.js",
+    "main.js.map": "/job-listing/static/js/main.1cfa50c1.chunk.js.map",
     "runtime-main.js": "/job-listing/static/js/runtime-main.b008bb8f.js",
     "runtime-main.js.map": "/job-listing/static/js/runtime-main.b008bb8f.js.map",
-    "static/js/2.818d41a3.chunk.js": "/job-listing/static/js/2.818d41a3.chunk.js",
-    "static/js/2.818d41a3.chunk.js.map": "/job-listing/static/js/2.818d41a3.chunk.js.map",
+    "static/js/2.5f007319.chunk.js": "/job-listing/static/js/2.5f007319.chunk.js",
+    "static/js/2.5f007319.chunk.js.map": "/job-listing/static/js/2.5f007319.chunk.js.map",
     "index.html": "/job-listing/index.html",
-    "precache-manifest.8c174b33bd497d510cfbbdb28fceefff.js": "/job-listing/precache-manifest.8c174b33bd497d510cfbbdb28fceefff.js",
+    "precache-manifest.c2fb1a67aa10a922bfb44cdb18ca8ca5.js": "/job-listing/precache-manifest.c2fb1a67aa10a922bfb44cdb18ca8ca5.js",
     "service-worker.js": "/job-listing/service-worker.js",
-    "static/js/2.818d41a3.chunk.js.LICENSE.txt": "/job-listing/static/js/2.818d41a3.chunk.js.LICENSE.txt",
+    "static/js/2.5f007319.chunk.js.LICENSE.txt": "/job-listing/static/js/2.5f007319.chunk.js.LICENSE.txt",
     "static/media/account.svg": "/job-listing/static/media/account.9f72c13b.svg",
     "static/media/bgheaderdesktop.svg": "/job-listing/static/media/bgheaderdesktop.6e2f7196.svg",
     "static/media/bgheadermobile.svg": "/job-listing/static/media/bgheadermobile.6b5ff5a0.svg",
     "static/media/eyecam.svg": "/job-listing/static/media/eyecam.39eaebdf.svg",
     "static/media/faceit.svg": "/job-listing/static/media/faceit.76faa79f.svg",
+    "static/media/iconremove.svg": "/job-listing/static/media/iconremove.ae67c678.svg",
     "static/media/insure.svg": "/job-listing/static/media/insure.52b85a50.svg",
     "static/media/loopstudios.svg": "/job-listing/static/media/loopstudios.6c50fd74.svg",
     "static/media/manage.svg": "/job-listing/static/media/manage.fbe431a9.svg",
@@ -25,7 +26,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.b008bb8f.js",
-    "static/js/2.818d41a3.chunk.js",
-    "static/js/main.82d6cba8.chunk.js"
+    "static/js/2.5f007319.chunk.js",
+    "static/js/main.1cfa50c1.chunk.js"
   ]
 }

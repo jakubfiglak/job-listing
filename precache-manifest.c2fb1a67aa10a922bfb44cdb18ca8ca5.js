@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "632b8e8f8b5b37959e25446031d9b44f",
+    "revision": "b8be59f9100ee13c40c5db9b095e6a7e",
     "url": "/job-listing/index.html"
   },
   {
-    "revision": "5079992f81b2f660a818",
-    "url": "/job-listing/static/js/2.818d41a3.chunk.js"
+    "revision": "e6c43a7e89ad8a56a79c",
+    "url": "/job-listing/static/js/2.5f007319.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/job-listing/static/js/2.818d41a3.chunk.js.LICENSE.txt"
+    "url": "/job-listing/static/js/2.5f007319.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8d9e95730f0cf4984982",
-    "url": "/job-listing/static/js/main.82d6cba8.chunk.js"
+    "revision": "553ec796b73a832a553c",
+    "url": "/job-listing/static/js/main.1cfa50c1.chunk.js"
   },
   {
     "revision": "05ef0430f95191851fd8",
@@ -38,6 +38,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "76faa79fba7225014706c0aac0b46472",
     "url": "/job-listing/static/media/faceit.76faa79f.svg"
+  },
+  {
+    "revision": "ae67c678a143e6c6b913629f3d3b55e9",
+    "url": "/job-listing/static/media/iconremove.ae67c678.svg"
   },
   {
     "revision": "52b85a5018745489a50626498bc347ad",
