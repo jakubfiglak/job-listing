@@ -16,6 +16,10 @@ const StyledTag = styled.button`
     background: ${({ theme }) => theme.primary};
     color: #fff;
   }
+
+  &:active {
+    outline: none;
+  }
 `;
 
 export default StyledTag;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { data } from '../../data/data';
 import JobAd from '../JobAd/JobAd';
+import FilterWrapper from '../FilterWrapper/FilterWrapper';
 
 const StyledAdsWrapper = styled.div`
   padding: 7.6rem 0;
@@ -9,6 +10,10 @@ const StyledAdsWrapper = styled.div`
   @media screen and (max-width: 768px) {
     padding: 5.6rem 0;
   }
+`;
+
+const StyledMainWrapper = styled.main`
+  position: relative;
 `
 
 class AdsWrapper extends Component {
@@ -19,31 +24,37 @@ class AdsWrapper extends Component {
 
   handleTagClick = (e) => {
     const filterString = e.target.innerHTML;
-    this.setState(prevState => ({
-      filter: [...prevState.filter, filterString]
-    }))
-  }
+
+    if (!this.state.filter.includes(filterString)) {
+      this.setState(prevState => ({
+        filter: [...prevState.filter, filterString]
+      }))
+    }
+  };
 
   render() {
     const {ads} = this.state;
 
     return (
-      <StyledAdsWrapper>
-        {ads.map(ad => (
-          <JobAd
-            key={ad.id} 
-            company={ad.company} 
-            logo={ad.logo} 
-            properties={ad.properties} 
-            title={ad.title} 
-            published={ad.published} 
-            type={ad.type} 
-            location={ad.location} 
-            tags={ad.tags}
-            handleTagClick={this.handleTagClick} 
-            />
-        )) }
-      </StyledAdsWrapper>
+      <StyledMainWrapper>
+        <FilterWrapper/>
+        <StyledAdsWrapper>
+          {ads.map(ad => (
+            <JobAd
+              key={ad.id} 
+              company={ad.company} 
+              logo={ad.logo} 
+              properties={ad.properties} 
+              title={ad.title} 
+              published={ad.published} 
+              type={ad.type} 
+              location={ad.location} 
+              tags={ad.tags}
+              handleTagClick={this.handleTagClick} 
+              />
+          )) }
+        </StyledAdsWrapper>
+      </StyledMainWrapper>
     );
   }
 }
