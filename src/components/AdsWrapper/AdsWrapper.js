@@ -19,25 +19,37 @@ const StyledMainWrapper = styled.main`
 class AdsWrapper extends Component {
   state = {
     ads: [...data],
-    filter: []
+    filters: []
   }
 
   handleTagClick = (e) => {
     const filterString = e.target.innerHTML;
 
-    if (!this.state.filter.includes(filterString)) {
+    if (!this.state.filters.includes(filterString)) {
       this.setState(prevState => ({
-        filter: [...prevState.filter, filterString]
+        filters: [...prevState.filters, filterString]
       }))
     }
   };
 
+  handleDeleteFilter = e => {
+    const filterToRemove = e.target.previousSibling.innerHTML;
+    
+    this.setState(prevState => ({
+      filters: [...prevState.filters.filter(filter => filter !== filterToRemove)]
+    }))
+  };
+
+  handleClearFilters = () => this.setState({
+    filters: []
+  })
+
   render() {
-    const {ads} = this.state;
+    const {ads, filters} = this.state;
 
     return (
       <StyledMainWrapper>
-        <FilterWrapper/>
+        {filters.length !== 0 && <FilterWrapper filters={filters} handleDeleteFilter={this.handleDeleteFilter} handleClearFilters={this.handleClearFilters} />}
         <StyledAdsWrapper>
           {ads.map(ad => (
             <JobAd

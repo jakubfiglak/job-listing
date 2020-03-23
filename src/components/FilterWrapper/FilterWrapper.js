@@ -86,26 +86,19 @@ const StyledContainer = styled.div`
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 999;
 `;
 
-const FilterWrapper = () => (
+const FilterWrapper = ({ filters, handleDeleteFilter, handleClearFilters }) => (
   <StyledContainer>
     <StyledFilterWrapper>
-      <StyledFilterEl>
-        <StyledFilterTag as="span">Frontend</StyledFilterTag>
-        <StyledDelButton />
-      </StyledFilterEl>
-      <StyledFilterEl>
-        <StyledFilterTag>Frontend</StyledFilterTag>
-        <StyledDelButton />
-      </StyledFilterEl>
-      <StyledFilterEl>
-        <StyledFilterTag>Frontend</StyledFilterTag>
-        <StyledDelButton />
-      </StyledFilterEl>
+      {filters.length && filters.map((filter) => (
+        <StyledFilterEl>
+          <StyledFilterTag as="span">{filter}</StyledFilterTag>
+          <StyledDelButton onClick={handleDeleteFilter} />
+        </StyledFilterEl>
+      ))}
     </StyledFilterWrapper>
-    <StyledClearButton>Clear</StyledClearButton>
+    <StyledClearButton onClick={handleClearFilters}>Clear</StyledClearButton>
   </StyledContainer>
 );
 
