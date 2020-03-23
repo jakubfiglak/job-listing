@@ -6,7 +6,7 @@ import JobAd from '../JobAd/JobAd';
 const StyledAdsWrapper = styled.div`
   padding: 7.6rem 0;
 
-  @media screen and (max-width: 411px) {
+  @media screen and (max-width: 768px) {
     padding: 5.6rem 0;
   }
 `

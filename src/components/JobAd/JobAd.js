@@ -8,7 +8,7 @@ const StyledLogo = styled.img`
   top: 50%;
   transform: translateY(-50%);
 
-  @media screen and (max-width: 411px) {
+  @media screen and (max-width: 768px) {
     width: 48px;
     height: 48px;
     left: 24px;
@@ -21,7 +21,7 @@ const StyledCompanyName = styled.h3`
   color: ${({ theme }) => theme.primary};
   margin-right: 2rem;
 
-  @media screen and (max-width: 411px) {
+  @media screen and (max-width: 768px) {
     font-size: ${({ theme }) => theme.fontSize.s};
   }
 `;
@@ -43,13 +43,20 @@ const StyledProperty = styled.div`
 
 `;
 
-const StyledRole = styled.h2`
+const StyledRole = styled.a`
   font-size: ${({ theme }) => theme.fontSize.xl};
   font-weight: ${({ theme }) => theme.bold};
   color: ${({ theme }) => theme.vdarkgray};
+  text-decoration: none;
   margin: 1.2rem 0;
+  cursor: pointer;
+  transition: all 0.2s;
 
-  @media screen and (max-width: 411px) {
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
+
+  @media screen and (max-width: 768px) {
     font-size: ${({ theme }) => theme.fontSize.l};
   }
 `;
@@ -89,6 +96,13 @@ const StyledTag = styled.span`
   padding: 0.8rem 1rem;
   border-radius: 4px;
   margin: 0.5rem 1.6rem 0.5rem 0;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: ${({ theme }) => theme.primary};
+    color: #fff;
+  }
 `;
 
 const StyledFlexContainer = styled.div`
@@ -104,10 +118,6 @@ const StyledFlexContainer = styled.div`
     position: relative;
 
     @media screen and (max-width: 768px) {
-      margin-bottom: 2rem;
-    }
-
-    @media screen and (max-width: 411px) {
       margin-bottom: 3.3rem;
 
       &::after {
@@ -140,7 +150,7 @@ const StyledFlexContainer = styled.div`
       flex-wrap: wrap;
       justify-content: flex-end;
 
-      @media screen and (max-width: 411px) {
+      @media screen and (max-width: 768px) {
         justify-content: flex-start;
   }
     `
@@ -173,7 +183,7 @@ const StyledContainer = styled.div`
     `
   )};
 
-  @media screen and (max-width: 411px) {
+  @media screen and (max-width: 768px) {
     padding: 3.2rem 2.4rem;
     margin: 0 auto 4rem;
   }
@@ -196,7 +206,7 @@ const JobAd = ({
               property === 'Featured' ? <StyledProperty key={property} featured>{property}</StyledProperty> : <StyledProperty key={property}>{property}</StyledProperty>
             ))}
           </StyledFlexContainer>
-          <StyledRole>{title}</StyledRole>
+          <StyledRole href="#">{title}</StyledRole>
           <StyledFlexContainer>
             <StyledInfo>{published}</StyledInfo>
             <StyledInfo>{type}</StyledInfo>

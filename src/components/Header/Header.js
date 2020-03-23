@@ -9,8 +9,10 @@ const StyledHeader = styled.header`
   background-repeat: no-repeat;
   background-size: 100% 100%;
 
-  @media screen and (max-width: 411px) {
+  @media screen and (max-width: 768px) {
     background: ${({ theme }) => theme.primary} url(${bgheadermobile});
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     }
 `;
 
