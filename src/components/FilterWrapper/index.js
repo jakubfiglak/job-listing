@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import StyledTag from '../Tag/Tag';
+import StyledTag from '../Tag';
 import IconRemove from '../../assets/iconremove.svg';
+import { appear } from '../../animations';
 
 const StyledFilterTag = styled(StyledTag)`
   margin: 0;
@@ -67,7 +68,8 @@ const StyledFilterEl = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 1.6rem 0 0;
+  margin: 0.8rem 1.6rem 0.8rem 0;
+  animation: ${appear} 0.5s ease;
 `;
 
 const StyledFilterWrapper = styled.div`
@@ -87,6 +89,11 @@ const StyledContainer = styled.div`
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: ${appear} 0.5s ease;
+
+  @media screen and (max-width: 768px) {
+    padding: 2rem;
+  }
 `;
 
 const FilterWrapper = ({ filters, handleDeleteFilter, handleClearFilters }) => (

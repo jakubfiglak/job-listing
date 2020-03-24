@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import StyledTag from '../Tag/Tag';
+import StyledTag from '../Tag';
+import { appear } from '../../animations';
 
 const StyledLogo = styled.img`
   position: absolute;
@@ -151,6 +152,7 @@ const StyledContainer = styled.div`
   width: 90%;
   max-width: 1100px;
   margin: 0 auto 2.4rem;
+  animation: ${appear} 0.5s ease;
 
   ${({ featured }) => (
     featured && css`

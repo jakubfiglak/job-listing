@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import { data } from '../../data/data';
-import JobAd from '../JobAd/JobAd';
-import FilterWrapper from '../FilterWrapper/FilterWrapper';
+import JobAd from '../JobAd';
+import FilterWrapper from '../FilterWrapper';
 
 const StyledAdsWrapper = styled.div`
   padding: 7.6rem 0;
@@ -11,6 +11,14 @@ const StyledAdsWrapper = styled.div`
   @media screen and (max-width: 768px) {
     padding: 5.6rem 0;
   }
+
+  ${({filtered}) => (
+    filtered && css`
+      @media screen and (max-width: 768px) {
+       padding: 11.6rem 0;
+  }
+    `
+  )}
 `;
 
 const StyledMainWrapper = styled.main`
@@ -55,7 +63,7 @@ class AdsWrapper extends Component {
     return (
       <StyledMainWrapper>
         {filters.length !== 0 && <FilterWrapper filters={filters} handleDeleteFilter={this.handleDeleteFilter} handleClearFilters={this.handleClearFilters} />}
-        <StyledAdsWrapper>
+        <StyledAdsWrapper filtered={filters.length}>
           {filteredAds.map(ad => (
             <JobAd
               key={ad.id} 
