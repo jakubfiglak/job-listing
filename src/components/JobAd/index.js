@@ -222,6 +222,7 @@ JobAd.propTypes = {
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ])).isRequired,
+  handleTagClick: PropTypes.func.isRequired,
 };
 
 JobAd.defaultProps = {

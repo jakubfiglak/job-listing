@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import StyledTag from '../Tag';
 import IconRemove from '../../assets/iconremove.svg';
@@ -100,7 +101,7 @@ const FilterWrapper = ({ filters, handleDeleteFilter, handleClearFilters }) => (
   <StyledContainer>
     <StyledFilterWrapper>
       {filters.length && filters.map((filter) => (
-        <StyledFilterEl>
+        <StyledFilterEl key={filter}>
           <StyledFilterTag as="span">{filter}</StyledFilterTag>
           <StyledDelButton onClick={handleDeleteFilter} />
         </StyledFilterEl>
@@ -109,5 +110,11 @@ const FilterWrapper = ({ filters, handleDeleteFilter, handleClearFilters }) => (
     <StyledClearButton onClick={handleClearFilters}>Clear</StyledClearButton>
   </StyledContainer>
 );
+
+FilterWrapper.propTypes = {
+  filters: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handleDeleteFilter: PropTypes.func.isRequired,
+  handleClearFilters: PropTypes.func.isRequired,
+};
 
 export default FilterWrapper;
